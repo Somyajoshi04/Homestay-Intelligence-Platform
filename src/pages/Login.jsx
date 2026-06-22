@@ -1,10 +1,13 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-function Login() {
+function Login({ darkMode, setDarkMode }) {
   return (
     <>
-      <Navbar />
+      <Navbar
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+      />
 
       <div style={{ padding: "40px" }}>
         <h1>Login</h1>
@@ -14,7 +17,7 @@ function Login() {
         </p>
       </div>
 
-      <Footer />
+      <Footer darkMode={darkMode} />
     </>
   );
 }

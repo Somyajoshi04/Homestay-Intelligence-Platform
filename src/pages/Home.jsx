@@ -3,10 +3,13 @@ import Hero from "../components/Hero";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 
-function Home() {
+function Home({ darkMode, setDarkMode }) {
   return (
     <>
-      <Navbar />
+      <Navbar
+  darkMode={darkMode}
+  setDarkMode={setDarkMode}
+/>
 
       <Hero />
 
@@ -32,7 +35,7 @@ function Home() {
         />
       </div>
 
-      <Footer />
+      <Footer darkMode={darkMode} />
     </>
   );
 }
