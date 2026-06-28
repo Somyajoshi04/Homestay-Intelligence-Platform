@@ -1,18 +1,97 @@
-# React + Vite
+# Homestay Intelligence Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based platform for analyzing homestay reviews with sentiment analysis, theme detection, and AI-powered response suggestions.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Sentiment Analysis (Positive, Neutral, Negative)
+- Theme Detection (Food, Host, Cleanliness, Location, Value)
+- AI Response Suggestions
+- Review Analytics Dashboard
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React, Vite, React Router
+- **Backend**: Node.js, Express
+- **Styling**: CSS with dark/light mode support
 
-## Expanding the ESLint configuration
+## How to Run Backend Locally
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
 
-# homestay-intelligence-platform
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Setup
+
+1. Navigate to the backend directory:
+```bash
+cd backend
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Create a `.env` file in the backend directory:
+```bash
+cp .env.example .env
+```
+
+4. Start the server:
+```bash
+npm start
+```
+
+The backend will run on `http://localhost:5000`
+
+### API Endpoints
+
+- `GET /api/reviews` - List all reviews (with optional filters)
+- `GET /api/reviews/:id` - Get single review by ID
+- `POST /api/reviews` - Create new review
+- `PUT /api/reviews/:id` - Update review
+- `DELETE /api/reviews/:id` - Delete review
+- `GET /api/reviews/search?q=...` - Search reviews
+- `GET /api/reviews/stats` - Get review statistics
+- `POST /api/reviews/:id/response` - Add host response
+
+## How to Run Frontend Locally
+
+1. Navigate to the project root:
+```bash
+cd staysense-ai-main
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+The frontend will run on `http://localhost:5173`
+
+## Project Structure
+
+```
+staysense-ai-main/
+├── backend/
+│   ├── server.js          # Express server
+│   ├── package.json       # Backend dependencies
+│   ├── .env               # Environment variables (gitignored)
+│   └── .env.example       # Environment variables template
+├── src/
+│   ├── components/        # React components
+│   ├── pages/            # Page components
+│   └── services/         # API service layer
+└── public/               # Static assets
+```
+
+## Testing the API
+
+Import the Postman collection from `backend/postman-collection.json` to test all endpoints.
